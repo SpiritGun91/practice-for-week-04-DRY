@@ -1,53 +1,32 @@
-function multiplyBiggerNumByTwo(num1, num2) {
-  let bigNum;
-  if (num1 > num2) {
-    bigNum = num1;
-    return bigNum * 2;
-  } else {
-    bigNum = num2;
-    return bigNum * 2;
-  }
-}
+// Helper function to find the extreme value (max or min) between two numbers
+const findExtremeValue = (a, b, isMax = true) =>
+	isMax ? (a > b ? a : b) : a < b ? a : b;
 
-function divideBiggerNumByThree(num1, num2) {
-  let bigNum;
-  if (num1 > num2) {
-    bigNum = num1;
-    return bigNum / 3;
-  } else {
-    bigNum = num2;
-    return bigNum / 3;
-  }
-}
+const multiplyBiggerNumByTwo = (num1, num2) => {
+	const bigNum = findExtremeValue(num1, num2);
+	return bigNum * 2;
+};
 
-function eatMostTacos(sum1, sum2) {
-  let bigNum;
-  if (sum1 > sum2) {
-    bigNum = sum1;
-    return `I ate ${bigNum} tacos.`;
-  } else {
-    bigNum = sum2;
-    return `I ate ${bigNum} tacos.`;
-  }
-}
+const divideBiggerNumByThree = (num1, num2) => {
+	const bigNum = findExtremeValue(num1, num2);
+	return bigNum / 3;
+};
 
-function adoptSmallerDog(weight1, weight2) {
-  let smallDog;
-  if (weight1 < weight2) {
-    smallDog = weight1;
-    return `I adopted a dog that weighs ${smallDog} pounds.`;
-  } else {
-    smallDog = weight2;
-    return `I adopted a dog that weighs ${smallDog} pounds.`;
-  }
-}
+const eatMostTacos = (sum1, sum2) => {
+	const bigNum = findExtremeValue(sum1, sum2);
+	return `I ate ${bigNum} tacos.`;
+};
 
+const adoptSmallerDog = (weight1, weight2) => {
+	const smallDog = findExtremeValue(weight1, weight2, false);
+	return `I adopted a dog that weighs ${smallDog} pounds.`;
+};
 
 /**************************************************************************/
 /* DO NOT CHANGE THE CODE BELOW */
 module.exports = {
-  multiplyBiggerNumByTwo,
-  divideBiggerNumByThree,
-  eatMostTacos,
-  adoptSmallerDog
+	multiplyBiggerNumByTwo,
+	divideBiggerNumByThree,
+	eatMostTacos,
+	adoptSmallerDog,
 };
